@@ -1,0 +1,3 @@
+#node ./node_modules/electron-packager/bin/electron-packager.js ./ sumris --icon asset/images/icon --platform=linux --arch=x64 --overwrite --electron-zip-dir=./electron-zip --out dist/
+#node ./node_modules/electron-packager/bin/electron-packager.js ./ sumris --icon asset/images/icon --platform=win32 --arch=x64 --overwrite --electron-zip-dir=./electron-zip --out dist/
+node ./node_modules/electron-packager/bin/electron-packager.js ./ sumris --icon asset/images/icon --platform=win32 --arch=ia32 --overwrite --electron-zip-dir=./electron-zip --out dist/

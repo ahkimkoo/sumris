@@ -1,0 +1,52 @@
+html{
+	font-size: 10px !important;
+}
+
+body{
+	background: none !important;
+	font-size: 1.4rem !important;
+}
+
+fieldset {
+  border: 2px #af3333 solid !important;
+  border-radius: 1rem !important;
+  width: 95% !important;
+  margin: auto !important;
+  margin-top:2rem !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+fieldset>legend{
+	border: 2px #af3333 solid !important;
+	border-radius: 0.5rem !important;
+	font-size: 1.6rem !important;
+	font-weight: bold !important;
+}
+
+fieldset>ul>li{
+	height: 4rem !important;
+}
+
+fieldset>ul>li::after{
+	display: table !important; 
+	content: "" !important; 
+	width: 0 !important; 
+	clear: both !important;
+}
+
+fieldset>ul>li>img{
+	width:3rem !important;
+	height:3rem !important;
+	border-radius: 50% !important;
+	display: block !important;
+	float: left !important;
+	margin-left: 1rem !important;
+}
+
+fieldset>ul>li>a{
+	line-height:3rem !important;
+	display: block !important;
+	float: left !important;
+	margin-left: 1rem !important;
+}

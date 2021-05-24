@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sumris</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"> 
+	<link rel="stylesheet" type="text/css" href="scripts/elementui/theme-chalk/index.css"/>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		h1{
+			font-size: 24px;
+		}
+	</style>
+	<script src="scripts/vue.js"></script>
+	<script src="scripts/elementui/index.js"></script>
+</head>
+<body>
+    <div id="app">
+		<el-form ref="form" :model="form" label-width="80px" v-loading="loading" element-loading-text="拼命计算中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)">
+			<el-form-item label="网址">
+			  <el-col :span="20">
+				<el-input v-model="form.url" placeholder="请输入网址"></el-input>
+			  </el-col>
+			  <el-col :span="4" type="flex" justify="center" align="middle">
+				<el-button type="primary" @click="getArticle">提取内容</el-button>
+			  </el-col>
+			</el-form-item>
+			<el-form-item label="标题">
+			   <el-col :span="20">
+				<el-input v-model="form.title" placeholder="请输入标题"></el-input>
+			   </el-col>
+				<el-col :span="4" type="flex" justify="center" align="middle">
+				  <span style="font-size:12px;">可以直接输入标题正文</span>
+				</el-col>
+			</el-form-item>
+			<el-form-item label="正文">
+			  <el-col :span="20">
+				<el-input  type="textarea"  :rows="5" placeholder="请输入正文"  v-model="form.content"></el-input>
+			  </el-col>
+			  <el-col :span="4">
+				<el-button type="warning" @click="clearContent">清空内容</el-button>
+			  </el-col>
+			</el-form-item>
+			<el-form-item label="选项">
+					<el-col :span="10" type="flex" justify="left" align="left">摘要字数&nbsp;<el-input-number v-model="form.wordcount" :step="25"></el-input-number></el-col>
+					<el-col :span="10" type="flex" justify="left" align="left">连续语句&nbsp;<el-switch v-model="form.shingle" ></el-switch></el-col>
+					<el-col :span="4" type="flex" justify="center" align="middle"><el-button type="danger" @click="getSummary">生成摘要</el-button></el-col>
+			</el-form-item>
+			<el-form-item label="摘要">
+			  <el-col :span="20">
+				<el-input  type="textarea"  :autosize="{ minRows: 2, maxRows: 8}"   v-model="form.summary"></el-input>
+			  </el-col>
+			  <el-col :span="4" type="flex" justify="center" align="middle">
+				<el-button type="success" @click="copySummaryToClipBoard">复制摘要</el-button>
+			  </el-col>
+			</el-form-item>
+			<el-form-item label="选项">
+					<el-col :span="20" type="flex" justify="left" align="left">关键词数&nbsp;<el-input-number v-model="form.keywordcount" :step="5"></el-input-number></el-col>
+					<el-col :span="4" type="flex" justify="center" align="middle"><el-button type="danger" @click="getKeywords">提关键词</el-button></el-col>
+			</el-form-item>
+			<el-form-item label="关键词">
+			  <el-col :span="18">
+				<div class="tag-group" align="left">
+					<el-tag
+					  v-for="item in form.keywords"
+					  :key="item.label"
+					  :type="item.type"
+					  effect="light" align="left" style="margin-right: 5px;">
+					  {{ item.label }}
+					</el-tag>
+				</div>
+			  </el-col>
+			  <el-col :span="4" type="flex" justify="center" align="middle">
+				<el-button type="success" @click="copySummaryToClipBoard">复制关键词</el-button>
+			  </el-col>
+			</el-form-item>
+		  </el-form>
+	</div>
+	<script src="scripts/index.js"></script>
+</body>
+</html>

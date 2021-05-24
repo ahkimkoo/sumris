@@ -1,0 +1,56 @@
+{
+  "name": "sumris",
+  "version": "0.0.1",
+  "main": "main.js",
+  "dependencies": {
+    "@node-rs/jieba": "^1.1.0",
+    "async": "^2.0.0-rc.2",
+    "brain.js": "^1.0.4",
+    "bufferhelper": "^0.2.1",
+    "iconv-lite": "^0.4.15",
+    "nodejieba": "^2.2.4",
+    "string-similarity": "^1.2.0"
+  },
+  "scripts": {
+    "test": "node ./node_modules/electron/cli.js .",
+    "build": "node ./node_modules/electron-builder/out/cli/cli.js -l -w",
+    "rebuild": "node ./node_modules/electron-builder/out/cli/cli.js node-gyp-rebuild",
+    "rebuildX": "./node_modules/.bin/electron-rebuild -p -t 'dev,prod,optional'",
+    "pack:osx": "node ./node_modules/electron-packager/bin/electron-packager.js . $npm_package_productName --overwrite --out=dist/osx --platform=darwin --arch=x64 --icon=asset/images/icon.icns",
+    "pack:linux32": "node ./node_modules/electron-packager/bin/electron-packager.js . $npm_package_productName --overwrite --out=dist/linux --platform=linux --arch=ia32",
+    "pack:linux64": "node ./node_modules/electron-packager/bin/electron-packager.js . $npm_package_productName --overwrite --out=dist/linux --platform=linux --arch=x64",
+    "pack:win32": "node ./node_modules/electron-packager/bin/electron-packager.js . $npm_package_productName --overwrite --out=dist/win --platform=win32 --arch=ia32 --icon=asset/images/icon.ico",
+    "pack:win64": "node ./node_modules/electron-packager/bin/electron-packager.js . $npm_package_productName --overwrite --out=dist/win --platform=win32 --arch=x64 --icon=asset/images/icon.ico",
+    "package": "node ./node_modules/electron-packager/bin/electron-packager.js . $npm_package_productName --icon asset/images/icon --all --overwrite --out dist/"
+  },
+  "devDependencies": {
+    "electron": "^12.0.9",
+    "electron-builder": "^22.10.5",
+    "electron-packager": "^15.2.0",
+    "electron-rebuild": "^2.3.5"
+  },
+  "build": {
+    "appId": "sumris",
+    "mac": {
+      "category": "pub.hys.sumris"
+    },
+    "linux": {
+      "category": "pub.hys.sumris",
+      "icon": "asset/images/micon.png",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  }
+}
