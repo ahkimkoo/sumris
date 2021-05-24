@@ -2,4 +2,6 @@
 
 nodejs: v10.19.0
 
-https://github.com/napi-rs/node-rs/tree/master/packages/jieba
+electron: 12.0.9
+
+nodejieba: 2.5.2
