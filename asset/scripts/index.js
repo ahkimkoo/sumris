@@ -6,7 +6,7 @@ new Vue({
     data: function() {
       return { 
         form: {
-            'url': 'https://finance.sina.com.cn/china/2021-05-21/doc-ikmyaawc6741536.shtml',
+            'url': '',
             'title': '',
             'content': '',
             'summary': '',
@@ -99,7 +99,7 @@ new Vue({
                 type: 'success'
             });
         },
-        copySummaryToClipBoard:function(text,event){
+        copyKeywordsToClipBoard:function(text,event){
             let self = this;
             let keywordsStr = self.form.keywords.map(x=>{return x['label']}).join('  ')
             clipboard.writeText(keywordsStr);
